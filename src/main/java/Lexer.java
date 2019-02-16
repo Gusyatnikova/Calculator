@@ -18,7 +18,7 @@ public class Lexer {
         StringBuilder buffer = new StringBuilder();
         while (current == 32) {
             try {
-                reader.read();
+               current = reader.read();
             } catch (IOException e) {
                 System.out.println("error (getLexeme) in reader.read");
             }
@@ -66,5 +66,9 @@ public class Lexer {
             default:
                 throw new Exception("Exception in Lexer default");
         }
+    }
+
+    public int getCurrent() {
+        return current;
     }
 }
